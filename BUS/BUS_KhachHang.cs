@@ -71,7 +71,7 @@ namespace BUS
                 objectList.Add((object)pT);
             }
 
-            WordHelper.ExportToWord(objectList, "Template\\KhachHang_Template.docx", exportPath);
+            WordHelper.ExportToWord(dal_khachhang.GetKhachHang(), "Template\\KhachHang_Template.docx", exportPath);
 
         }
 

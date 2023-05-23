@@ -69,7 +69,7 @@ namespace BUS
                 objectList.Add((object)ncc);
             }
 
-            WordHelper.ExportToWord(objectList, "Template\\NhaCungCap_Template.docx", exportPath);
+            //WordHelper.ExportToWord(objectList, "Template\\NhaCungCap_Template.docx", exportPath);
 
         }
 

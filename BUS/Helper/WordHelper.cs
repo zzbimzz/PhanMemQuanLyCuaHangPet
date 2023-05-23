@@ -2,7 +2,9 @@
 using Novacode;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,8 +14,12 @@ namespace BUS
 {
     internal static class WordHelper
     {
-        public static void ExportToWord(List<object> data, string templatePath, string exportPath)
+        public static void ExportToWord(DataTable data, string templatePath, string exportPath, List<string> unwantedValues = null)
         {
+            if (unwantedValues == null)
+            {
+                unwantedValues = new List<string>();
+            }
             // Tạo tài liệu Word mới
             using (DocX document = DocX.Load(templatePath))
             {
@@ -33,87 +39,50 @@ namespace BUS
 
                 // Lấy đối tượng bảng từ tài liệu Word
                 Table table = document.Tables[1];
-                int i = 1;
+
 
                 // Lặp qua các dữ liệu trong danh sách
 
+                List<string> columns = new List<string>();
+                foreach (DataColumn column in data.Columns)
+                {
+                    columns.Add(column.ColumnName);
+                }
 
-                foreach (var item in data)
+                int index = 1;
+                foreach (DataRow item in data.Rows)
                 {
                     // Thêm một dòng mới vào bảng
                     Row row = table.InsertRow();
+                    int i = 1;
 
-                    // Sử dụng các thuộc tính của đối tượng để điền dữ liệu vào bảng
-                    if (item is KhachHang)
+                    row.Cells[0].Paragraphs[0].InsertText(index++.ToString());
+                    row.Cells[0].Width = 80;
+
+                    foreach (string col in columns)
                     {
-                        KhachHang kh = (KhachHang)item;
-                        row.Cells[0].Paragraphs[0].InsertText(i.ToString());
-                        row.Cells[0].Width = 80;
-                        row.Cells[1].Paragraphs[0].InsertText(kh.MaKH.ToString());
-                        row.Cells[2].Paragraphs[0].InsertText(kh.TenKH);
-                        row.Cells[2].Width = 300;
-                        row.Cells[3].Paragraphs[0].InsertText(kh.DiaChi);
-                        row.Cells[4].Paragraphs[0].InsertText(kh.SoDienThoai);
 
-                        i++;
+                        if (unwantedValues.Contains(col))
+                        {
+                            continue;
+                        }
 
-                    }
-                    else if(item is SanPham) 
-                    {
-                        SanPham sp = (SanPham)item;
-                        row.Cells[0].Paragraphs[0].InsertText(i.ToString());
-                        row.Cells[0].Width = 80;
-                        row.Cells[1].Paragraphs[0].InsertText(sp.MaSP.ToString());
-                        row.Cells[2].Paragraphs[0].InsertText(sp.TenSP);
-                        row.Cells[2].Width = 300;
-                        row.Cells[3].Paragraphs[0].InsertText(sp.GiaTien.ToString());
-                        row.Cells[4].Paragraphs[0].InsertText(sp.SoLuong.ToString());
+                        if (item[col] is DateTime)
+                        {
+                            DateTime dateValue = (DateTime)item[col];
+                            string formattedDate = dateValue.ToString("dd/MM/yyyy");
+                            row.Cells[i++].Paragraphs[0].InsertText(formattedDate);
+                            continue;
+                        }
 
-                        i++;
+                        row.Cells[i++].Paragraphs[0].InsertText(item[col].ToString());
 
-
-                    }
-                    else if (item is NhanVien)
-                    {
-                        NhanVien nv = (NhanVien)item;
-                        row.Cells[0].Paragraphs[0].InsertText(i.ToString());
-                        row.Cells[0].Width = 80;
-                        row.Cells[1].Paragraphs[0].InsertText(nv.MaNV.ToString());
-                        row.Cells[2].Paragraphs[0].InsertText(nv.TenNV);
-                        row.Cells[2].Width = 300;
-                        row.Cells[3].Paragraphs[0].InsertText(nv.ChucVu);
-                        row.Cells[4].Paragraphs[0].InsertText(nv.DiaChi);
-                        row.Cells[5].Paragraphs[0].InsertText(nv.SoDienThoai);
-
-                    }
-                    else if (item is NhaCungCap)
-                    {
-                        NhaCungCap ncc = (NhaCungCap)item;
-                        row.Cells[0].Paragraphs[0].InsertText(i.ToString());
-                        row.Cells[0].Width = 80;
-                        row.Cells[1].Paragraphs[0].InsertText(ncc.MaNCC.ToString());
-                        row.Cells[2].Paragraphs[0].InsertText(ncc.TenNCC);
-                        row.Cells[2].Width = 300;
-                        row.Cells[3].Paragraphs[0].InsertText(ncc.DiaChi);
-                        row.Cells[4].Paragraphs[0].InsertText(ncc.SoDienThoai);
-                    }
-                    else if(item is TaiKhoan)
-                    {
-                        TaiKhoan tk = (TaiKhoan)item;
-                        row.Cells[0].Paragraphs[0].InsertText(i.ToString());
-                        row.Cells[0].Width = 80;
-                        row.Cells[1].Paragraphs[0].InsertText(tk.MaTK.ToString());
-                        row.Cells[2].Paragraphs[0].InsertText(tk.TenTaiKhoan);
-                        row.Cells[2].Width = 300;
-                        row.Cells[3].Paragraphs[0].InsertText(tk.MatKhau);
-                        row.Cells[4].Paragraphs[0].InsertText(tk.MaNV.ToString());
 
                     }
                 }
                 document.SaveAndOpenFile(exportPath);
             }
         }
-
         public static void SaveAndOpenFile(this DocX doc, string filename = "BaoCao.docx")
         {
             /*string thuMuc = "temp";

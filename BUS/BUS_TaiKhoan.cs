@@ -91,7 +91,7 @@ namespace BUS
                 objectList.Add((object)tk);
             }
 
-            WordHelper.ExportToWord(objectList, "Template\\TaiKhoan_Template.docx", exportPath);
+            //WordHelper.ExportToWord(objectList, "Template\\TaiKhoan_Template.docx", exportPath);
 
         }
 

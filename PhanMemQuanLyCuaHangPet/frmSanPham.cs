@@ -106,7 +106,6 @@ namespace PhanMemQuanLyCuaHangPet
             txbTenSP.Clear();
             txbGiaSP.Clear();
             txbSoLuongSP.Clear();
-
         }
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)

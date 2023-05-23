@@ -72,7 +72,7 @@ namespace BUS
                 objectList.Add((object)pT);
             }
 
-            WordHelper.ExportToWord(objectList, "Template\\NhanVien_Template.docx", exportPath);
+            //WordHelper.ExportToWord(objectList, "Template\\NhanVien_Template.docx", exportPath);
 
         }
 

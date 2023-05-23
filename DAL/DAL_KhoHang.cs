@@ -32,20 +32,20 @@ namespace DAL
 
         public void UpdateKhoHang(KhoHang kh)
         {
-            string query = $"SP_Update_KhoHang @MaKho , @SP , @SoLuongTon ";
+/*            string query = $"SP_Update_KhoHang @MaKho , @SP , @SoLuongTon ";
             DataProvider.Instance.
                 ExecuteQuery(query, new object[]
                 {
                     kh.MaKho,
                     kh.MaSP,
                     kh.SoLuongTon,
-                });
+                });*/
         }
 
         public void DeleteKhoHang(int MaKho)
         {
-            string query = $"SP_Delete_KhoHang @MaKho ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { MaKho });
+/*            string query = $"SP_Delete_KhoHang @MaKho ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { MaKho });*/
         }
 
         public DataTable SearchKhoHang(string keyword)

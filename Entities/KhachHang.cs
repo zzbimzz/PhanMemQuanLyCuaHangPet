@@ -29,5 +29,13 @@ namespace DTO
             this.SoDienThoai = SoDienThoai;
 
         }
+
+        public KhachHang(int MaKH, string TenKH)
+        {
+            this.MaKH = MaKH;
+            this.TenKH = TenKH;
+
+
+        }
     }
 }

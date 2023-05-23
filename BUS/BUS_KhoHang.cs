@@ -25,22 +25,22 @@ namespace BUS
             return dal_khohang.GetKhoHang();
         }
 
-        public void AddTaiKhoan(KhoHang kh)
+        public void AddKhoHang(KhoHang kh)
         {
             dal_khohang.AddKhoHang(kh);
         }
-        public void UpdateTaiKhoan(KhoHang kh)
+        public void UpdateKhoHang(KhoHang kh)
         {
             dal_khohang.UpdateKhoHang(kh);
         }
 
-        public void DeleteTaiKhoan(int MaKho)
+        public void DeleteKhoHang(int MaKho)
         {
             dal_khohang.DeleteKhoHang(MaKho);
         }
 
 
-        public DataTable SearchTaiKhoan(string keyword)
+        public DataTable SearchKhoHang(string keyword)
         {
             return dal_khohang.SearchKhoHang(keyword);
         }
@@ -72,7 +72,7 @@ namespace BUS
                 objectList.Add((object)tk);
             }
 
-            WordHelper.ExportToWord(objectList, "Template\\KhoHang_Template.docx", exportPath);
+            //WordHelper.ExportToWord(objectList, "Template\\KhoHang_Template.docx", exportPath);
 
         }
 
