@@ -111,8 +111,22 @@ namespace PhanMemQuanLyCuaHangPet
             DataTable data = bus_taikhoan.GetTaiKhoanNhanVien(frmDangNhap.tenTaiKhoan, frmDangNhap.matKhau);
             foreach (DataRow row in data.Rows) 
             {
+
                 lblTaiKhoan.Text = row[0].ToString();
                 lblChucVu.Text = row[1].ToString();
+                string chucVu = row[1].ToString();
+                if (chucVu == "Nhân Viên")
+                {
+                    // Ẩn button nhân viên
+                    btnNhanVien.Enabled = false;
+                    btnTaiKhoan.Enabled = false;
+                }
+                else
+                {
+                    // Hiển thị button nhân viên
+                    btnNhanVien.Enabled = true;
+                    btnTaiKhoan.Enabled |= true;
+                }
             }
         }
 

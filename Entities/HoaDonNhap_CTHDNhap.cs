@@ -6,6 +6,27 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
+    public class HoaDonNhap
+    {
+        public int MaHDN { get; set; }
+        public DateTime NgayNhap { get; set; }
+        public float TongTien { get; set; }
+        public int MaNCC { get; set; }
+        public int MaNV { get; set; }
+
+
+        public HoaDonNhap() { }
+
+        public HoaDonNhap(int maHDN, DateTime ngayNhap, float tongTien, int maNCC, int maNV)
+        {
+            MaHDN = maHDN;
+            NgayNhap = ngayNhap;
+            TongTien = tongTien;
+            MaNCC = maNCC;
+            MaNV = maNV;
+        }
+    }
+
     public class ChiTietHoaDonNhap
     {
         public int MaHDN { get; set; }
@@ -26,10 +47,6 @@ namespace DTO
             SoLuong = soLuong;
             DonGia = donGia;
         }
-   
+
     }
-
-
-
-    
 }

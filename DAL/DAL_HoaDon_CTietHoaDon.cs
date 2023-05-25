@@ -26,7 +26,7 @@ namespace DAL
 
         public void AddHoaDon(HoaDon hd , CtietHoaDon cthd)
         {
-            string query = $"SP_add_HoaDon @MaHD  ,  @NgayLap , @TongTien ,  @MaKH ,     @MaNV , @MaSP  , @SoLuong ,  @DonGia   ";
+            string query = $"SP_add_HoaDon @MaHD  ,  @NgayLap , @TongTien ,  @MaKH ,  @MaNV , @MaSP  , @SoLuong ,  @DonGia   ";
             DataProvider.Instance.
                 ExecuteQuery(query, new object[]
                 {
@@ -44,7 +44,7 @@ namespace DAL
 
         public void UpdateHoaDon(HoaDon hd, CtietHoaDon cthd)
         {
-            string query = $"SP_Update_Khachhang @MaHD  ,  @NgayLap , @TongTien ,  @MaKH ,     @MaNV , @MaSP  , @SoLuong ,  @DonGia ";
+            string query = $"SP_Update_HoaDon @MaHD  ,  @NgayLap , @TongTien ,  @MaKH ,  @MaNV , @MaSP  , @SoLuong ,  @DonGia ";
             DataProvider.Instance.
                 ExecuteQuery(query, new object[]
                 {
@@ -59,15 +59,15 @@ namespace DAL
                 });
         }
 
-        public void SP_Delete_Khachhang(int MaKH)
+        public void DeleteHoaDon(int MaHD)
         {
-            string query = $"SP_Delete_Khachhang @MaKH ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { MaKH });
+            string query = $"SP_Delete_HoaDon @MaHD ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { MaHD });
         }
 
         public DataTable SP_Search_KhachHang(string keyword)
         {
-            string query = "SP_Search_KhachHang @key ";
+            string query = "SP_Search_HoaDon @key ";
 
             return DataProvider.Instance.ExecuteQuery(query, new object[] { keyword });
         }

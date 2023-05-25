@@ -38,9 +38,11 @@ namespace PhanMemQuanLyCuaHangPet
 
                 if (bus_taikhoan.kiemTraTK(tenTaiKhoan, matKhau))
                 {
-                    frmMain frmMain = new frmMain();
-                    frmMain.Show();
-                    this.Hide();
+
+                        frmMain frmMain = new frmMain();
+                        frmMain.Show();
+                        this.Hide();
+                    
 
                 }
                 else

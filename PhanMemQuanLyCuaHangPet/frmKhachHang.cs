@@ -76,7 +76,7 @@ namespace PhanMemQuanLyCuaHangPet
                 string SoDienThoai = txbSDT.Text.Trim();
                 KhachHang kh = new KhachHang(MaKh, TenKH, DiaChi, SoDienThoai);
                 bus_khachhang.EditKhachHang(kh);
-                MessageBox.Show("Thêm thông tin khách hàng thành công!");
+                MessageBox.Show("Sửa thông tin khách hàng thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -159,7 +159,7 @@ namespace PhanMemQuanLyCuaHangPet
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Lưu thông tin phòng trọ";
+            saveFileDialog.Title = "Lưu thông tin khách hàng";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {

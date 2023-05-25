@@ -23,18 +23,22 @@ namespace BUS
             return dal_nhanvien.GetNhanVien();
         }
 
-        public void AddNhanVien(NhanVien nhanvien)
+        public bool AddNhanVien(NhanVien nhanvien)
         {
-            dal_nhanvien.AddNhanVien(nhanvien);
+            try
+            {
+                return    dal_nhanvien.AddNhanVien(nhanvien);
+            }
+            catch  { return false; }
         }
-        public void EditNhanVien(NhanVien nhanvien)
+        public bool EditNhanVien(NhanVien nhanvien)
         {
-            dal_nhanvien.UpdateNhanVien(nhanvien);
+            return dal_nhanvien.UpdateNhanVien(nhanvien);
         }
 
-        public void DeleteNhanVien(int MaNV)
+        public bool DeleteNhanVien(int MaNV)
         {
-            dal_nhanvien.DeleteNhanVien(MaNV);
+            return dal_nhanvien.DeleteNhanVien(MaNV);
         }
 
 
@@ -43,47 +47,18 @@ namespace BUS
             return dal_nhanvien.SearchNhanVien(keyword);
         }
 
-        public List<NhanVien> GetAll(DataTable tbnhanvien)
-        {
-            List<NhanVien> listKH = new List<NhanVien>();
-            foreach (DataRow row in tbnhanvien.Rows)
-            {
-                NhanVien nv = new NhanVien()
-                {
-                    MaNV = (int)row["MaNV"],
-                    TenNV = row["TenNV"].ToString(),
-                    ChucVu = row["ChucVu"].ToString(),
-                    DiaChi = row["DiaChi"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
-
-                };
-                listKH.Add(nv);
-            }
-            return listKH;
-        }
-
 
         public void KetXuatWord(string exportPath)
         {
-            List<NhanVien> nhanvienlist = GetAll(dal_nhanvien.GetNhanVien());
-            List<object> objectList = new List<object>();
-            foreach (NhanVien pT in nhanvienlist)
-            {
-                objectList.Add((object)pT);
-            }
 
-            //WordHelper.ExportToWord(objectList, "Template\\NhanVien_Template.docx", exportPath);
+
+            WordHelper.ExportToWord(dal_nhanvien.GetNhanVien(), "Template\\NhanVien_Template.docx", exportPath);
 
         }
 
         public void XuatExcel(string filePath)
         {
-            List<NhanVien> nhanvienlist = GetAll(dal_nhanvien.GetNhanVien());
-            List<object> objectList = new List<object>();
-            foreach (NhanVien pT in nhanvienlist)
-            {
-                objectList.Add((object)pT);
-            }
+
             ExcelHelper.WriteExcelFile(filePath, "Template\\NhanVien_Template.xlsx", dal_nhanvien.GetNhanVien());
         }
 

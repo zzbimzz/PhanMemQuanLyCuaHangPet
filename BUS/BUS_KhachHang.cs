@@ -24,18 +24,23 @@ namespace BUS
             return dal_khachhang.GetKhachHang();
         }
 
-        public void AddKhachHang(KhachHang khachHang)
+        public bool AddKhachHang(KhachHang khachHang)
         {
-            dal_khachhang.AddKhachHang(khachHang);
+            try
+            {
+                return dal_khachhang.AddKhachHang(khachHang);
+            }
+            catch { return false; }
+
         }
-        public void EditKhachHang(KhachHang khachHang)
+        public bool EditKhachHang(KhachHang khachHang)
         {
-            dal_khachhang.SP_Update_Khachhang(khachHang);
+            return dal_khachhang.SP_Update_Khachhang(khachHang);
         }
 
-        public void DeleteKhachHang(int MaKH)
+        public bool DeleteKhachHang(int MaKH)
         {
-            dal_khachhang.SP_Delete_Khachhang(MaKH);
+            return dal_khachhang.SP_Delete_Khachhang(MaKH);
         }
 
 
@@ -44,32 +49,11 @@ namespace BUS
             return dal_khachhang.SP_Search_KhachHang(keyword);
         }
 
-        public List<KhachHang> GetAll(DataTable tbkhachHang)
-        {
-            List<KhachHang> listKH = new List<KhachHang>();
-            foreach (DataRow row in tbkhachHang.Rows)
-            {
-                KhachHang kH = new KhachHang()
-                {
-                    MaKH = (int)row["MaKH"],
-                    TenKH = row["TenKH"].ToString(),
-                    DiaChi = row["DiaChi"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
 
-                };
-                listKH.Add(kH);
-            }
-            return listKH;
-        }
 
         public void KetXuatWord(string exportPath)
         {
-            List<KhachHang> khachhanglist = GetAll(dal_khachhang.GetKhachHang());
-            List<object> objectList = new List<object>();
-            foreach (KhachHang pT in khachhanglist)
-            {
-                objectList.Add((object)pT);
-            }
+
 
             WordHelper.ExportToWord(dal_khachhang.GetKhachHang(), "Template\\KhachHang_Template.docx", exportPath);
 
@@ -77,12 +61,7 @@ namespace BUS
 
         public void XuatExcel(string filePath)
         {
-            List<KhachHang> khachhanglist = GetAll(dal_khachhang.GetKhachHang());
-            List<object> objectList = new List<object>();
-            foreach (KhachHang pT in khachhanglist)
-            {
-                objectList.Add((object)pT);
-            }
+
             ExcelHelper.WriteExcelFile(filePath, "Template\\KhachHang_Template.xlsx", dal_khachhang.GetKhachHang());
         }
 

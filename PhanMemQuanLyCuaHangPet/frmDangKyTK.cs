@@ -33,7 +33,7 @@ namespace PhanMemQuanLyCuaHangPet
 
                 TaiKhoan tk = new TaiKhoan(MaTK,TenTK,MatKhau,MaNV);
                 bus_taikhoan.AddTaiKhoan(tk);
-                MessageBox.Show("Thêm thông tin tai khoan thành công!");
+                MessageBox.Show("Thêm thông tin tài khoản thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace PhanMemQuanLyCuaHangPet
 
                 TaiKhoan tk = new TaiKhoan(MaTK, TenTK, MatKhau, MaNV);
                 bus_taikhoan.UpdateTaiKhoan(tk);
-                MessageBox.Show("Sua thông tin tai khoan thành công!");
+                MessageBox.Show("Sửa thông tin tài khoản thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace PhanMemQuanLyCuaHangPet
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Microsoft Word | *.docx";
-            saveFileDialog.Title = "Lưu thông tin Khách Hàng";
+            saveFileDialog.Title = "Lưu thông tin tài khoản";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {
@@ -110,7 +110,7 @@ namespace PhanMemQuanLyCuaHangPet
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Lưu thông tin phòng trọ";
+            saveFileDialog.Title = "Lưu thông tin tài khoản";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {
@@ -156,17 +156,13 @@ namespace PhanMemQuanLyCuaHangPet
             txbMatKhau.Text = "";
             cmbMaNV.SelectedIndex = 0;
         }
-
         void Reset()
         {
             txbMaTK.Clear();
             txbTenTK.Clear();
             txbMatKhau.Clear();
             cmbMaNV.SelectedIndex = 0;
-
-
         }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();

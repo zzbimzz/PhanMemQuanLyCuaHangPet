@@ -16,37 +16,30 @@ namespace DAL
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public void AddKhachHang(KhachHang khachHang)
+        public bool AddKhachHang(KhachHang khachHang)
         {
             string query = $"SP_Add_Khachhang @MaKH , @TenKH , @DiaChi , @SoDienThoai  ";
-            DataProvider.Instance.
-                ExecuteQuery(query, new object[]
-                {
-                    khachHang.MaKH,
-                    khachHang.TenKH,
-                    khachHang.DiaChi,
-                    khachHang.SoDienThoai,
-
-                });
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { khachHang.MaKH, khachHang.TenKH, khachHang.DiaChi, khachHang.SoDienThoai }) > 0;
         }
 
-        public void SP_Update_Khachhang(KhachHang khachHang)
+        public bool SP_Update_Khachhang(KhachHang khachHang)
         {
             string query = $"SP_Update_Khachhang @MaKH , @TenKH , @DiaChi , @SoDienThoai ";
-            DataProvider.Instance.
-                ExecuteQuery(query, new object[]
+            return    DataProvider.Instance.
+                ExecuteNonQuery(query, new object[]
                 {
                     khachHang.MaKH,
                     khachHang.TenKH,
                     khachHang.DiaChi,
                     khachHang.SoDienThoai,
-                });
+                }) > 0;
+            
         }
 
-        public void SP_Delete_Khachhang(int MaKH)
+        public bool SP_Delete_Khachhang(int MaKH)
         {
             string query = $"SP_Delete_Khachhang @MaKH ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { MaKH });
+            return  DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaKH }) >0 ;
         }
 
         public DataTable SP_Search_KhachHang(string keyword)

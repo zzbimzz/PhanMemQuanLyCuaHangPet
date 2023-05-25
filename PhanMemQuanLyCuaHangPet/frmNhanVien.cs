@@ -58,7 +58,7 @@ namespace PhanMemQuanLyCuaHangPet
                 string SoDienThoai = txbSoDienThoai.Text.Trim();
                 NhanVien nv = new NhanVien(MaNV, TenKH, ChucVu, DiaChi, SoDienThoai);
                 bus_nhanvien.AddNhanVien(nv);
-                MessageBox.Show("Thêm thông tin nhan vien thành công!");
+                MessageBox.Show("Thêm thông tin nhân viên thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -82,7 +82,7 @@ namespace PhanMemQuanLyCuaHangPet
                 string SoDienThoai = txbSoDienThoai.Text.Trim();
                 NhanVien nv = new NhanVien(MaNV, TenKH, ChucVu, DiaChi, SoDienThoai);
                 bus_nhanvien.EditNhanVien(nv);
-                MessageBox.Show("Thêm thông tin nhan vien thành công!");
+                MessageBox.Show("Sửa thông tin nhân viên thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace PhanMemQuanLyCuaHangPet
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Microsoft Word | *.docx";
-            saveFileDialog.Title = "Lưu thông tin Khách Hàng";
+            saveFileDialog.Title = "Lưu thông tin nhân viên";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {
@@ -154,7 +154,7 @@ namespace PhanMemQuanLyCuaHangPet
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Lưu thông tin phòng trọ";
+            saveFileDialog.Title = "Lưu thông tin nhân viên";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {

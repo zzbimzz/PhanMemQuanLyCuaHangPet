@@ -45,34 +45,11 @@ namespace BUS
             return dal_khohang.SearchKhoHang(keyword);
         }
 
-        public List<KhoHang> GetAll(DataTable tbkhohang)
-        {
-            List<KhoHang> listkho = new List<KhoHang>();
-            foreach (DataRow row in tbkhohang.Rows)
-            {
-                KhoHang kh = new KhoHang()
-                {
-                    MaKho = int.Parse(row["MaKho"].ToString()),
-                    MaSP = int.Parse(row["MaSP"].ToString()),
-                    SoLuongTon = int.Parse(row["SoLuongTon"].ToString()),
-
-                };
-                listkho.Add(kh);
-            }
-            return listkho;
-        }
-
-
         public void KetXuatWord(string exportPath)
         {
-            List<KhoHang> listkh = GetAll(dal_khohang.GetKhoHang());
-            List<object> objectList = new List<object>();
-            foreach (KhoHang tk in listkh)
-            {
-                objectList.Add((object)tk);
-            }
 
-            //WordHelper.ExportToWord(objectList, "Template\\KhoHang_Template.docx", exportPath);
+
+            WordHelper.ExportToWord(dal_khohang.GetKhoHang(), "Template\\KhoHang_Template.docx", exportPath);
 
         }
 

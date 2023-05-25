@@ -11,14 +11,13 @@ namespace DAL
     public class DAL_TaiKhoan
     {
 
-        public DataTable GetTaiKhoan(string tenTaiKhoan, string matKhau)
+        public DataTable GetTaiKhoan1(string tenTaiKhoan1, string matKhau1)
         {
-            string query = $"select * from TaiKhoan where TenTaiKhoan = '{tenTaiKhoan}' and MatKhau = '{matKhau}'";
+            string query = $"select * from TaiKhoan where TenTaiKhoan = '{tenTaiKhoan1}' and MatKhau = '{matKhau1}'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             return data;
         }
-
 
         public DataTable GetTaiKhoanNhanVien (string tentaikhoan, string matkhau)
         {
@@ -27,7 +26,6 @@ namespace DAL
 
             return data;
         }
-
 
 
         public DataTable GetTaiKhoan()

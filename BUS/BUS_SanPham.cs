@@ -43,35 +43,12 @@ namespace BUS
             return dal_sanpham.SearchSanPham(keyword);
         }
 
-        public List<SanPham> GetAll(DataTable tbsanpham)
-        {
-            List<SanPham> listSP = new List<SanPham>();
-            foreach (DataRow row in tbsanpham.Rows)
-            {
-                SanPham sp = new SanPham()
-                {
-                    MaSP = int.Parse(row["MaSP"].ToString()),
-                    TenSP = row["TenSP"].ToString(),
-                    GiaTien = float.Parse(row["GiaTien"].ToString()),
-                    SoLuong = int.Parse(row["SoLuong"].ToString()),
-
-                };
-                listSP.Add(sp);
-            }
-            return listSP;
-        }
 
 
         public void KetXuatWord(string exportPath)
         {
-            List<SanPham> sanphamlist = GetAll(dal_sanpham.GetSanPham());
-            List<object> objectList = new List<object>();
-            foreach (SanPham pT in sanphamlist)
-            {
-                objectList.Add((object)pT);
-            }
 
-            //WordHelper.ExportToWord(objectList, "Template\\SanPham_Template.docx", exportPath);
+            WordHelper.ExportToWord(dal_sanpham.GetSanPham(), "Template\\SanPham_Template.docx", exportPath);
 
         }
 

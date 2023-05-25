@@ -43,16 +43,6 @@ namespace PhanMemQuanLyCuaHangPet
             cmbTenNV.DisplayMember = "TenNV";
         }
 
-        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
-
-        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         DataTable data = new DataTable();
         private void dgvBanHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -66,10 +56,11 @@ namespace PhanMemQuanLyCuaHangPet
             txbDonGia.Text = dgvBanHang[6, dgvBanHang.CurrentCell.RowIndex].Value.ToString();
             txbTongTien.Text = dgvBanHang[7, dgvBanHang.CurrentCell.RowIndex].Value.ToString();
 
-            for(int i = 0; i < dgvBanHang.CurrentRow.Cells.Count; i++)
+/*            for(int i = 0; i < dgvBanHang.CurrentRow.Cells.Count; i++)
             {
                 data.Columns.Add(dgvBanHang[i, dgvBanHang.CurrentCell.RowIndex].Value.ToString());
-            }
+
+            }*/
 
         }
 
@@ -80,15 +71,25 @@ namespace PhanMemQuanLyCuaHangPet
         void Reset()
         {
 
-
-
+            txbMaHD.Clear();
+            cmbTenKH.SelectedIndex=0;
+            cmbTenSP.SelectedIndex = 0;
+            cmbTenNV.SelectedIndex = 0;
+            txbNgayLap.Clear();
+            txbSoLuong.Clear();
+            txbDonGia.Clear();
+            txbTongTien.Clear();
         }
-
         private void ResetForm()
         {
-
-
-
+            txbMaHD.Text="";
+            cmbTenKH.SelectedIndex = 0;
+            cmbTenSP.SelectedIndex = 0;
+            cmbTenNV.SelectedIndex = 0;
+            txbNgayLap.Text="";
+            txbSoLuong.Text = "";
+            txbDonGia.Text = "";
+            txbTongTien.Text = "";
 
         }
 
@@ -112,7 +113,7 @@ namespace PhanMemQuanLyCuaHangPet
                 HoaDon hoaDon = new HoaDon(MaHD,NgayLap,TongTien,TenKH,TenNV);
                 CtietHoaDon cthd = new CtietHoaDon(MaHD, TenSP, SoLuong, DonGia);
                 bus_hd_cthd.AddHoaDon(hoaDon, cthd);
-                MessageBox.Show("Thêm thông tin hoa don thành công!");
+                MessageBox.Show("Thêm thông tin hóa đơn thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -154,7 +155,7 @@ namespace PhanMemQuanLyCuaHangPet
                 HoaDon hoaDon = new HoaDon(MaHD, NgayLap, TongTien, TenKH, TenNV);
                 CtietHoaDon cthd = new CtietHoaDon(MaHD, TenSP, SoLuong, DonGia);
                 bus_hd_cthd.UpdateHoaDon(hoaDon, cthd);
-                MessageBox.Show("Thêm thông tin hoa don thành công!");
+                MessageBox.Show("Sửa thông tin hóa đơn thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -169,14 +170,20 @@ namespace PhanMemQuanLyCuaHangPet
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int MaKH = int.Parse(txbMaHD.Text);
+                bus_hd_cthd.DeleteHoaDon(MaKH);
+                frmBanHang_Load(sender, e);
+                Reset();
+            }
         }
 
         private void btnWord_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Microsoft Word | *.docx";
-            saveFileDialog.Title = "Lưu thông tin Khách Hàng";
+            saveFileDialog.Title = "Lưu thông tin Hóa Đơn";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {
@@ -192,8 +199,29 @@ namespace PhanMemQuanLyCuaHangPet
             }
         }
 
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
 
-
-
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Lưu thông tin hóa đơn";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                try
+                {
+                    bus_hd_cthd.XuatExcel(saveFileDialog.FileName,int.Parse(txbMaHD.Text));
+                    MessageBox.Show("Kết xuất thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo lỗi");
+                }
+            }
+        }
     }
 }

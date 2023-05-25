@@ -20,22 +20,21 @@ namespace BUS
         DAL_TaiKhoan dal_taikhoan = new DAL_TaiKhoan();
 
 
-        public DataTable GetTaiKhoanDangNhap(string tenTaiKhoan, string matKhau)
+/*        public DataTable GetTaiKhoanDangNhap(string tenTaiKhoan, string matKhau)
         {
-            return dal_taikhoan.GetTaiKhoan(tenTaiKhoan, matKhau);
-        }
+            return dal_taikhoan.GetTaiKhoan1(tenTaiKhoan, matKhau);
+        }*/
 
-        public bool kiemTraTK(string tenTaiKhoan, string matKhau)
+
+        public bool kiemTraTK(string tenTaiKhoan1, string matKhau1)
         {
-            return dal_taikhoan.GetTaiKhoan(tenTaiKhoan, matKhau).Rows.Count > 0;
+            return dal_taikhoan.GetTaiKhoan1(tenTaiKhoan1, matKhau1).Rows.Count > 0;
         }
 
         public DataTable GetTaiKhoanNhanVien(string tentaikhoan, string matkhau)
         {
             return dal_taikhoan.GetTaiKhoanNhanVien(tentaikhoan, matkhau);
         }
-
-
 
 
         public DataTable GetTaiKhoan()
@@ -63,35 +62,12 @@ namespace BUS
             return dal_taikhoan.SearchTaiKhoan(keyword);
         }
 
-        public List<TaiKhoan> GetAll(DataTable tbtaikhoan)
-        {
-            List<TaiKhoan> listTK = new List<TaiKhoan>();
-            foreach (DataRow row in tbtaikhoan.Rows)
-            {
-                TaiKhoan tk = new TaiKhoan()
-                {
-                    MaTK = int.Parse(row["MaTK"].ToString()),
-                    TenTaiKhoan = row["TenTaiKhoan"].ToString(),
-                    MatKhau = row["MatKhau"].ToString(),
-                    MaNV = int.Parse(row["MaNV"].ToString()),
-
-                };
-                listTK.Add(tk);
-            }
-            return listTK;
-        }
-
 
         public void KetXuatWord(string exportPath)
         {
-            List<TaiKhoan> tklist = GetAll(dal_taikhoan.GetTaiKhoan());
-            List<object> objectList = new List<object>();
-            foreach (TaiKhoan tk in tklist)
-            {
-                objectList.Add((object)tk);
-            }
 
-            //WordHelper.ExportToWord(objectList, "Template\\TaiKhoan_Template.docx", exportPath);
+
+            WordHelper.ExportToWord(dal_taikhoan.GetTaiKhoan(), "Template\\TaiKhoan_Template.docx", exportPath);
 
         }
 

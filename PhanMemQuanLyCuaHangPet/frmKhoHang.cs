@@ -32,7 +32,7 @@ namespace PhanMemQuanLyCuaHangPet
                 int SoLuongTon = int.Parse(txbSoLuongTon.Text.Trim());
                 KhoHang kh = new KhoHang(MaKho, MaSP, SoLuongTon);
                 bus_khohang.AddKhoHang(kh);
-                MessageBox.Show("Thêm thông tin tai khoan thành công!");
+                MessageBox.Show("Thêm thông tin kho hàng thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -55,7 +55,7 @@ namespace PhanMemQuanLyCuaHangPet
                 int SoLuongTon = int.Parse(txbSoLuongTon.Text.Trim());
                 KhoHang kh = new KhoHang(MaKho, MaSP, SoLuongTon);
                 bus_khohang.UpdateKhoHang(kh);
-                MessageBox.Show("Thêm thông tin tai khoan thành công!");
+                MessageBox.Show("Sửa thông tin kho hàng thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -86,17 +86,48 @@ namespace PhanMemQuanLyCuaHangPet
 
         private void btnWord_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Microsoft Word | *.docx";
+            saveFileDialog.Title = "Lưu thông tin Kho Hàng";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                bus_khohang.KetXuatWord(saveFileDialog.FileName);
+                MessageBox.Show("Kết xuất thành công!");
+                try
+                {
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo lỗi");
+                }
+            }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Lưu thông tin khách hàng";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                try
+                {
+                    bus_khohang.XuatExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Kết xuất thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo lỗi");
+                }
+            }
         }
 
         private void txbTimKhachHang_TextChanged(object sender, EventArgs e)
         {
-
+            string keyWord = txbTimhang.Text;
+            dgvKhoHang.DataSource = bus_khohang.SearchKhoHang(keyWord);
         }
 
         private void dgvKhoHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +161,11 @@ namespace PhanMemQuanLyCuaHangPet
             txbSoLuongTon.Clear();
 
 
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

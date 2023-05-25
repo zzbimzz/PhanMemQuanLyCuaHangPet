@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlHienthi = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnKhoHang = new System.Windows.Forms.Button();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
             this.btnNhaCC = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.pbxFish = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbxCat = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbxDog = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnKhoHang = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -101,6 +101,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 800);
             this.panel3.TabIndex = 9;
+            // 
+            // btnKhoHang
+            // 
+            this.btnKhoHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKhoHang.FlatAppearance.BorderSize = 0;
+            this.btnKhoHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnKhoHang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoHang.Image")));
+            this.btnKhoHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKhoHang.Location = new System.Drawing.Point(0, 631);
+            this.btnKhoHang.Name = "btnKhoHang";
+            this.btnKhoHang.Size = new System.Drawing.Size(200, 55);
+            this.btnKhoHang.TabIndex = 9;
+            this.btnKhoHang.Text = "Kho Hàng";
+            this.btnKhoHang.UseVisualStyleBackColor = true;
+            this.btnKhoHang.Click += new System.EventHandler(this.btnKhoHang_Click);
             // 
             // btnTaiKhoan
             // 
@@ -368,22 +384,6 @@
             this.pbxDog.TabIndex = 4;
             this.pbxDog.TabStop = false;
             // 
-            // btnKhoHang
-            // 
-            this.btnKhoHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnKhoHang.FlatAppearance.BorderSize = 0;
-            this.btnKhoHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhoHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnKhoHang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoHang.Image")));
-            this.btnKhoHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhoHang.Location = new System.Drawing.Point(0, 631);
-            this.btnKhoHang.Name = "btnKhoHang";
-            this.btnKhoHang.Size = new System.Drawing.Size(200, 55);
-            this.btnKhoHang.TabIndex = 9;
-            this.btnKhoHang.Text = "Kho Hàng";
-            this.btnKhoHang.UseVisualStyleBackColor = true;
-            this.btnKhoHang.Click += new System.EventHandler(this.btnKhoHang_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -436,7 +436,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox pbxDog;
         private System.Windows.Forms.Button btnBanHang;
         private Guna.UI2.WinForms.Guna2Button btnThoat;
-        private System.Windows.Forms.Button btnTaiKhoan;
         private System.Windows.Forms.Button btnKhoHang;
+        public System.Windows.Forms.Button btnTaiKhoan;
     }
 }

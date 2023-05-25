@@ -17,11 +17,11 @@ namespace DAL
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public void AddNhanVien(NhanVien nhanvien)
+        public bool AddNhanVien(NhanVien nhanvien)
         {
             string query = $"SP_Add_NhanVien @MaNV , @TenNV , @ChucVu , @DiaChi , @SoDienThoai  ";
-            DataProvider.Instance.
-                ExecuteQuery(query, new object[]
+            return    DataProvider.Instance.
+                ExecuteNonQuery(query, new object[]
                 {
                     nhanvien.MaNV,
                     nhanvien.TenNV,
@@ -29,27 +29,27 @@ namespace DAL
                     nhanvien.DiaChi,
                     nhanvien.SoDienThoai,
 
-                });
+                }) > 0;
         }
 
-        public void UpdateNhanVien(NhanVien nhanvien)
+        public bool UpdateNhanVien(NhanVien nhanvien)
         {
             string query = $"SP_Update_NhanVien @MaNV , @TenNV , @ChucVu , @DiaChi , @SoDienThoai  ";
-            DataProvider.Instance.
-                ExecuteQuery(query, new object[]
+            return    DataProvider.Instance.
+                ExecuteNonQuery(query, new object[]
                 {
                     nhanvien.MaNV,
                     nhanvien.TenNV,
                     nhanvien.ChucVu,
                     nhanvien.DiaChi,
                     nhanvien.SoDienThoai,
-                });
+                }) > 0;
         }
 
-        public void DeleteNhanVien(int MaNV)
+        public bool DeleteNhanVien(int MaNV)
         {
             string query = $"SP_Delete_NhanVien @MaNV ";
-            DataProvider.Instance.ExecuteQuery(query, new object[] { MaNV });
+            return    DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaNV } ) >0;
         }
 
         public DataTable SearchNhanVien(string keyword)

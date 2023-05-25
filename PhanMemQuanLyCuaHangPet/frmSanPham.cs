@@ -47,7 +47,7 @@ namespace PhanMemQuanLyCuaHangPet
                 int SoLuong = int.Parse(txbSoLuongSP.Text.Trim());
                 SanPham sp = new SanPham(MaSP, TenSP, GiaTien,SoLuong);
                 bus_sanpham.AddSanPham(sp);
-                MessageBox.Show("Thêm thông tin khách hàng thành công!");
+                MessageBox.Show("Thêm thông tin sản phẩm thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -70,7 +70,7 @@ namespace PhanMemQuanLyCuaHangPet
                 int SoLuong = int.Parse(txbSoLuongSP.Text.Trim());
                 SanPham sp = new SanPham(MaSP, TenSP, GiaTien, SoLuong);
                 bus_sanpham.UpdateSanPham(sp);
-                MessageBox.Show("Sửa thông tin khách hàng thành công!");
+                MessageBox.Show("Sửa thông tin sản phẩm thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -151,7 +151,7 @@ namespace PhanMemQuanLyCuaHangPet
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Lưu thông tin phòng trọ";
+            saveFileDialog.Title = "Lưu thông tin sản phẩm";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {

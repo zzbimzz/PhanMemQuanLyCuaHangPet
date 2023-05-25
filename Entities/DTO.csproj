@@ -74,9 +74,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHoaDonNhap.cs" />
     <Compile Include="HoaDon_CTietHoaDon.cs" />
-    <Compile Include="HoaDonNhap.cs" />
+    <Compile Include="HoaDonNhap_CTHDNhap.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="KhoHang.cs" />
     <Compile Include="NhaCungCap.cs" />

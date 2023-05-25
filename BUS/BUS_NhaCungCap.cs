@@ -42,45 +42,18 @@ namespace BUS
             return dal_nhacungcap.SearchNhaCungCap(keyword);
         }
 
-        public List<NhaCungCap> GetAll(DataTable tbnhacungcap)
-        {
-            List<NhaCungCap> listncc = new List<NhaCungCap>();
-            foreach (DataRow row in tbnhacungcap.Rows)
-            {
-                NhaCungCap ncc = new NhaCungCap()
-                {
-                    MaNCC = (int)row["MaNCC"],
-                    TenNCC = row["TenNCC"].ToString(),
-                    DiaChi = row["DiaChi"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
-
-                };
-                listncc.Add(ncc);
-            }
-            return listncc;
-        }
 
         public void KetXuatWord(string exportPath)
         {
-            List<NhaCungCap> ncclist = GetAll(dal_nhacungcap.GetNhaCungCap());
-            List<object> objectList = new List<object>();
-            foreach (NhaCungCap ncc in ncclist)
-            {
-                objectList.Add((object)ncc);
-            }
 
-            //WordHelper.ExportToWord(objectList, "Template\\NhaCungCap_Template.docx", exportPath);
+
+            WordHelper.ExportToWord(dal_nhacungcap.GetNhaCungCap(), "Template\\NhaCungCap_Template.docx", exportPath);
 
         }
 
         public void XuatExcel(string filePath)
         {
-            List<NhaCungCap> ncclist = GetAll(dal_nhacungcap.GetNhaCungCap());
-            List<object> objectList = new List<object>();
-            foreach (NhaCungCap ncc in ncclist)
-            {
-                objectList.Add((object)ncc);
-            }
+
             ExcelHelper.WriteExcelFile(filePath, "Template\\NhaCungCap_Template.xlsx", dal_nhacungcap.GetNhaCungCap());
         }
     }

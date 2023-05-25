@@ -35,11 +35,22 @@ namespace BUS
             dal_hoadon_ctiethoadon.UpdateHoaDon(hd, cthd);
         }
 
+        public void DeleteHoaDon(int MaHD)
+        {
+            dal_hoadon_ctiethoadon.DeleteHoaDon(MaHD);
+        }
+
         public void KetXuatWord(string exportPath , int MaHD )
         {
 
             WordHelper.ExportToWord(dal_hoadon_ctiethoadon.LayHoaDon(MaHD), "Template\\HoaDon_Template.docx", exportPath );
 
+        }
+
+        public void XuatExcel(string filePath , int MaHD)
+        {
+
+            ExcelHelper.WriteExcelFile(filePath, "Template\\HoaDon_Template.xlsx", dal_hoadon_ctiethoadon.LayHoaDon(MaHD));
         }
     }
 }

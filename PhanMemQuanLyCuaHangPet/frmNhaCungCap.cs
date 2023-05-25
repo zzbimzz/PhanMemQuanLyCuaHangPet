@@ -37,7 +37,7 @@ namespace PhanMemQuanLyCuaHangPet
                 string SoDienThoai = txbSDT.Text.Trim();
                 NhaCungCap ncc = new NhaCungCap(MaNCC, TenNCC, DiaChi, SoDienThoai);
                 bus_nhacungcap.AddNhaCungCap(ncc);
-                MessageBox.Show("Thêm thông tin sản phẩm thành công!");
+                MessageBox.Show("Thêm thông tin nhà cung cấp thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace PhanMemQuanLyCuaHangPet
                 string SoDienThoai = txbSDT.Text.Trim();
                 NhaCungCap ncc = new NhaCungCap(MaNCC, TenNCC, DiaChi, SoDienThoai);
                 bus_nhacungcap.EditNhaCungCap(ncc);
-                MessageBox.Show("Sửa thông tin sản phẩm thành công!");
+                MessageBox.Show("Sửa thông tin nhà cung cấp thành công!");
                 Reset();
             }
             catch (Exception ex)
@@ -108,24 +108,18 @@ namespace PhanMemQuanLyCuaHangPet
             txbTenNCC.Text = "";
             txbDiaChi.Text = "";
             txbSDT.Text = "";
-
-
         }
-
         void Reset()
         {
             txbMaNCC.Clear();
             txbTenNCC.Clear();
             txbDiaChi.Clear();
             txbSDT.Clear();
-
         }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnWord_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
