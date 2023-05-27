@@ -24,9 +24,26 @@ namespace BUS
             return dal_hdn_cthdn.GetHoaDonNhap();
         }
 
+
         public void AddHoaDonNhap(HoaDonNhap hdn, ChiTietHoaDonNhap cthdn)
         {
             dal_hdn_cthdn.AddHoaDonNhap(hdn, cthdn);
+        }
+
+
+        public void UpdateHoaDonNhap(HoaDonNhap hdn, ChiTietHoaDonNhap cthdn)
+        {
+            dal_hdn_cthdn.UpdateHoaDonNhap(hdn, cthdn);
+        }
+
+        public void DeleteHoaDonNhap(int MaHDN)
+        {
+            dal_hdn_cthdn.DeleteHoaDonNhap(MaHDN);
+        }
+
+        public DataTable SearchHoaDonNhap(string keyword)
+        {
+            return dal_hdn_cthdn.SP_Search_HoaDonNhap(keyword);
         }
 
 
@@ -35,6 +52,12 @@ namespace BUS
 
             WordHelper.ExportToWord(dal_hdn_cthdn.LayHoaDonNhap(MaHDN), "Template\\HoaDonNhap_Template.docx", exportPath);
 
+        }
+
+        public void XuatExcel(string filePath, int MaHDN)
+        {
+
+            ExcelHelper.WriteExcelFile(filePath, "Template\\HoaDonNhap_Template.xlsx", dal_hdn_cthdn.LayHoaDonNhap(MaHDN));
         }
 
     }

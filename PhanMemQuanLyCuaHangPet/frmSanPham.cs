@@ -166,5 +166,23 @@ namespace PhanMemQuanLyCuaHangPet
                 }
             }
         }
+
+        private void txbSoLuongSP_Leave(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txbSoLuongSP.Text, out int soLuong)) // chuyển đổi giá trị chuỗi thành giá trị số nguyên
+            {
+                MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập một số nguyên.");
+
+            }
+
+            if (soLuong <= 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0.");
+
+            }
+        }
+
+
+
     }
 }

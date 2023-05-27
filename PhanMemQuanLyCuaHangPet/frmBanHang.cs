@@ -114,6 +114,7 @@ namespace PhanMemQuanLyCuaHangPet
                 CtietHoaDon cthd = new CtietHoaDon(MaHD, TenSP, SoLuong, DonGia);
                 bus_hd_cthd.AddHoaDon(hoaDon, cthd);
                 MessageBox.Show("Thêm thông tin hóa đơn thành công!");
+                ThanhToan();
                 Reset();
             }
             catch (Exception ex)
@@ -126,19 +127,19 @@ namespace PhanMemQuanLyCuaHangPet
             }
         }
 
-        private void txbTongTien_Enter(object sender, EventArgs e)
+        private void ThanhToan()
         {
-            string dongia = txbDonGia.Text;
-            string soluong = txbSoLuong.Text;
-            int dongia1 = int.Parse(txbDonGia.Text.Trim());
-            int soluong1 = int.Parse(txbSoLuong.Text.Trim());
-            int tong;
-            if (dongia1 > 0 && soluong1 > 0)
-            {
-                tong = dongia1 * soluong1;
-                txbTongTien.Text = tong.ToString();
-            }
+            // Lấy thông tin sản phẩm và số lượng từ giao diện thanh toán
+            int maSP = (int)cmbTenSP.SelectedValue;
+            int soLuongBan = int.Parse(txbSoLuong.Text);
+
+            // Gọi phương thức cập nhật số lượng sản phẩm
+            bus_sanpham.CapNhatSoluongSP(maSP, soLuongBan);
         }
+
+
+
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -172,8 +173,8 @@ namespace PhanMemQuanLyCuaHangPet
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int MaKH = int.Parse(txbMaHD.Text);
-                bus_hd_cthd.DeleteHoaDon(MaKH);
+                int MaHD = int.Parse(txbMaHD.Text);
+                bus_hd_cthd.DeleteHoaDon(MaHD);
                 frmBanHang_Load(sender, e);
                 Reset();
             }
@@ -223,5 +224,69 @@ namespace PhanMemQuanLyCuaHangPet
                 }
             }
         }
+
+        private void txbTimKhachHang_TextChanged(object sender, EventArgs e)
+        {
+            string keyWord = txbTimHD.Text;
+            dgvBanHang.DataSource = bus_hd_cthd.SearchHoaDon(keyWord);
+        }
+
+        private void txbTongTien_Enter(object sender, EventArgs e)
+        {
+            string dongia = txbDonGia.Text;
+            string soluong = txbSoLuong.Text;
+            int dongia1 = int.Parse(txbDonGia.Text.Trim());
+            int soluong1 = int.Parse(txbSoLuong.Text.Trim());
+            int tong;
+            if (dongia1 > 0 && soluong1 > 0)
+            {
+                tong = dongia1 * soluong1;
+                txbTongTien.Text = tong.ToString();
+            }
+        }
+
+        private void cmbTenSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tensp = cmbTenSP.Text;
+            float giaTien = bus_sanpham.GetTienSanPham(tensp);
+            txbDonGia.Text = giaTien.ToString();
+        }
+
+        private void txbSoLuong_Leave(object sender, EventArgs e)
+        {
+            int maSP = (int)cmbTenSP.SelectedValue; // Lấy mã sản phẩm tương ứng
+
+            int soLuongNhap;
+            bool isValidSoLuong = int.TryParse(txbSoLuong.Text, out soLuongNhap);
+
+            if (isValidSoLuong)
+            {
+                int soLuongConLai = bus_sanpham.GetSoLuongSanPham(maSP); // Lấy số lượng sản phẩm còn lại
+
+                if (soLuongNhap > soLuongConLai)
+                {
+                    MessageBox.Show("Số lượng nhập vượt quá số lượng còn lại trong cửa hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbSoLuong.Focus(); // Focus lại vào textbox số lượng
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập số lượng hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbSoLuong.Focus(); // Focus lại vào textbox số lượng
+            }
+
+            if (!int.TryParse(txbSoLuong.Text, out int soLuong)) // chuyển đổi giá trị chuỗi thành giá trị số nguyên
+            {
+                MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập một số nguyên.");
+
+            }
+
+            if (soLuong <= 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0.");
+
+            }
+        }
+
     }
 }

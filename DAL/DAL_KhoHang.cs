@@ -17,6 +17,15 @@ namespace DAL
         }
 
 
+
+        public void CapNhatSoLuongTon(int maSP, int soLuongNhap)
+        {
+
+            string query = $"UPDATE KhoHang SET SoLuongTon = SoLuongTon + {soLuongNhap} WHERE MaSP = '{maSP}'";
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
+
+
         public void AddKhoHang(KhoHang kh)
         {
             string query = $"SP_Add_KhoHang @MaKho , @SP , @SoLuongTon ";

@@ -23,6 +23,21 @@ namespace BUS
             return dal_sanpham.GetSanPham();
         }
 
+        public int GetSoLuongSanPham(int maSP) // check số lượng sản phẩm 
+        {
+            return dal_sanpham.GetSoLuongSanPham(maSP);
+        }
+
+        public float GetTienSanPham(string tensp) // lấy giá tiền sản phẩm
+        {
+            return dal_sanpham.GetTienSanPham(tensp);
+        }
+
+        public void CapNhatSoluongSP(int maSP, int soLuong) // cập nhật số lượng sau khi thanh toán xong
+        {
+            dal_sanpham.CapNhatSoLuongSanPham(maSP , soLuong);
+        }
+
         public void AddSanPham(SanPham sanpham)
         {
             dal_sanpham.AddSanPham(sanpham);

@@ -13,9 +13,17 @@ namespace PhanMemQuanLyCuaHangPet
 {
     public partial class frmDangNhap : Form
     {
+        Timer timer;
         public frmDangNhap()
         {
             InitializeComponent();
+            dateTimePicker1.CustomFormat = "HH:mm:ss";
+            dateTimePicker1.Value = DateTime.Now;
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
         }
 
         BUS_TaiKhoan bus_taikhoan = new BUS_TaiKhoan();
@@ -57,6 +65,9 @@ namespace PhanMemQuanLyCuaHangPet
             }
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Now;
+        }
     }
 }

@@ -40,6 +40,11 @@ namespace BUS
             dal_hoadon_ctiethoadon.DeleteHoaDon(MaHD);
         }
 
+        public DataTable SearchHoaDon(string keyword)
+        {
+            return dal_hoadon_ctiethoadon.SP_Search_HoaDon(keyword);
+        }
+
         public void KetXuatWord(string exportPath , int MaHD )
         {
 

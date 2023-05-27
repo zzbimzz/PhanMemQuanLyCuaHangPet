@@ -65,7 +65,7 @@ namespace DAL
             DataProvider.Instance.ExecuteQuery(query, new object[] { MaHD });
         }
 
-        public DataTable SP_Search_KhachHang(string keyword)
+        public DataTable SP_Search_HoaDon(string keyword)
         {
             string query = "SP_Search_HoaDon @key ";
 

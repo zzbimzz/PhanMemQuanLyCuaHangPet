@@ -19,6 +19,11 @@ namespace DAL
         }
 
 
+
+
+
+
+
         public DataTable LayHoaDonNhap(int MaHDN)
         {
             string query = "SP_lay_HoaDonNhap @MaHDN";
@@ -28,7 +33,7 @@ namespace DAL
 
         public void AddHoaDonNhap(HoaDonNhap hdn, ChiTietHoaDonNhap cthdn)
         {
-            string query = $"SP_add_HoaDon @MaHDN  ,  @NgayNhap , @TongTien ,  @MaNCC ,     @MaNV , @MaSP  , @SoLuong ,  @DonGia   ";
+            string query = $"SP_add_HoaDonNhap @MaHDN  ,  @NgayNhap , @TongTien ,  @MaNCC ,     @MaNV , @MaSP  , @SoLuong ,  @DonGia   ";
             DataProvider.Instance.
                 ExecuteQuery(query, new object[]
                 {
@@ -42,6 +47,37 @@ namespace DAL
                     cthdn.DonGia
 
                 });
+        }
+
+
+        public void UpdateHoaDonNhap(HoaDonNhap hdn, ChiTietHoaDonNhap cthdn)
+        {
+            string query = $"SP_Update_HoaDonNhap @MaHDN  ,  @NgayNhap , @TongTien ,  @MaNCC ,     @MaNV , @MaSP  , @SoLuong ,  @DonGia ";
+            DataProvider.Instance.
+                ExecuteQuery(query, new object[]
+                {
+                    hdn.MaHDN,
+                    hdn.NgayNhap,
+                    hdn.TongTien,
+                    hdn.MaNCC,
+                    hdn.MaNV,
+                    cthdn.MaSP,
+                    cthdn.SoLuong,
+                    cthdn.DonGia
+                });
+        }
+
+        public void DeleteHoaDonNhap(int MaHDN)
+        {
+            string query = $"SP_Delete_HoaDonNhap @MaHDN ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { MaHDN });
+        }
+
+        public DataTable SP_Search_HoaDonNhap(string keyword)
+        {
+            string query = "SP_Search_HoaDonNhap @key ";
+
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { keyword });
         }
 
     }

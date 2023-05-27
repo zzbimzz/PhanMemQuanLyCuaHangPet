@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangKyTK));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangKyTK));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
             this.dgvTaiKhoan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cmbMaNV = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
             this.panel5.SuspendLayout();
@@ -75,6 +75,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1300, 800);
             this.panel1.TabIndex = 0;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThoat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThoat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThoat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThoat.FillColor = System.Drawing.Color.Crimson;
+            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThoat.ForeColor = System.Drawing.Color.White;
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnThoat.Location = new System.Drawing.Point(1268, -1);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(33, 34);
+            this.btnThoat.TabIndex = 17;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dgvTaiKhoan
             // 
@@ -134,6 +151,34 @@
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaTK";
+            this.Column1.HeaderText = "Mã Tài Khoản";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenTaiKhoan";
+            this.Column2.HeaderText = "Tên Tài Khoản";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MatKhau";
+            this.Column3.HeaderText = "Mật Khẩu";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TenNV";
+            this.Column4.HeaderText = "Nhân Viên";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -167,7 +212,7 @@
             this.cmbMaNV.Location = new System.Drawing.Point(429, 229);
             this.cmbMaNV.Name = "cmbMaNV";
             this.cmbMaNV.Size = new System.Drawing.Size(450, 30);
-            this.cmbMaNV.TabIndex = 38;
+            this.cmbMaNV.TabIndex = 3;
             // 
             // label2
             // 
@@ -186,7 +231,7 @@
             this.btnWord.Location = new System.Drawing.Point(836, 288);
             this.btnWord.Name = "btnWord";
             this.btnWord.Size = new System.Drawing.Size(124, 45);
-            this.btnWord.TabIndex = 35;
+            this.btnWord.TabIndex = 8;
             this.btnWord.Text = "Word";
             this.btnWord.UseVisualStyleBackColor = false;
             this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
@@ -198,7 +243,7 @@
             this.btnExcel.Location = new System.Drawing.Point(1014, 288);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(124, 45);
-            this.btnExcel.TabIndex = 34;
+            this.btnExcel.TabIndex = 9;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -347,51 +392,6 @@
             this.label1.Size = new System.Drawing.Size(299, 37);
             this.label1.TabIndex = 14;
             this.label1.Text = "Đăng Ký Tài Khoản";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaTK";
-            this.Column1.HeaderText = "Mã Tài Khoản";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenTaiKhoan";
-            this.Column2.HeaderText = "Tên Tài Khoản";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MatKhau";
-            this.Column3.HeaderText = "Mật Khẩu";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TenNV";
-            this.Column4.HeaderText = "Nhân Viên";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThoat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThoat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThoat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThoat.FillColor = System.Drawing.Color.Crimson;
-            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThoat.Location = new System.Drawing.Point(1268, -1);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(33, 34);
-            this.btnThoat.TabIndex = 17;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmDangKyTK
             // 

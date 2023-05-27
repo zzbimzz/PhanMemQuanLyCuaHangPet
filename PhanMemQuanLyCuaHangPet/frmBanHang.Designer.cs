@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -55,7 +55,7 @@
             this.txbSoLuong = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txbTimKhachHang = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txbTimHD = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -137,7 +137,7 @@
             this.cmbTenNV.Location = new System.Drawing.Point(68, 246);
             this.cmbTenNV.Name = "cmbTenNV";
             this.cmbTenNV.Size = new System.Drawing.Size(207, 30);
-            this.cmbTenNV.TabIndex = 45;
+            this.cmbTenNV.TabIndex = 4;
             // 
             // label9
             // 
@@ -155,7 +155,8 @@
             this.cmbTenSP.Location = new System.Drawing.Point(635, 137);
             this.cmbTenSP.Name = "cmbTenSP";
             this.cmbTenSP.Size = new System.Drawing.Size(207, 30);
-            this.cmbTenSP.TabIndex = 43;
+            this.cmbTenSP.TabIndex = 2;
+            this.cmbTenSP.SelectedIndexChanged += new System.EventHandler(this.cmbTenSP_SelectedIndexChanged);
             // 
             // cmbTenKH
             // 
@@ -163,7 +164,7 @@
             this.cmbTenKH.Location = new System.Drawing.Point(341, 137);
             this.cmbTenKH.Name = "cmbTenKH";
             this.cmbTenKH.Size = new System.Drawing.Size(207, 30);
-            this.cmbTenKH.TabIndex = 42;
+            this.cmbTenKH.TabIndex = 1;
             // 
             // label5
             // 
@@ -177,11 +178,11 @@
             // 
             // txbDonGia
             // 
-            this.txbDonGia.Location = new System.Drawing.Point(635, 246);
+            this.txbDonGia.Location = new System.Drawing.Point(629, 254);
             this.txbDonGia.Multiline = true;
             this.txbDonGia.Name = "txbDonGia";
             this.txbDonGia.Size = new System.Drawing.Size(207, 22);
-            this.txbDonGia.TabIndex = 40;
+            this.txbDonGia.TabIndex = 6;
             // 
             // label2
             // 
@@ -209,7 +210,7 @@
             this.txbNgayLap.Multiline = true;
             this.txbNgayLap.Name = "txbNgayLap";
             this.txbNgayLap.Size = new System.Drawing.Size(207, 22);
-            this.txbNgayLap.TabIndex = 36;
+            this.txbNgayLap.TabIndex = 3;
             // 
             // btnWord
             // 
@@ -218,7 +219,7 @@
             this.btnWord.Location = new System.Drawing.Point(834, 320);
             this.btnWord.Name = "btnWord";
             this.btnWord.Size = new System.Drawing.Size(124, 45);
-            this.btnWord.TabIndex = 35;
+            this.btnWord.TabIndex = 12;
             this.btnWord.Text = "Word";
             this.btnWord.UseVisualStyleBackColor = false;
             this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
@@ -230,7 +231,7 @@
             this.btnExcel.Location = new System.Drawing.Point(1012, 320);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(124, 45);
-            this.btnExcel.TabIndex = 34;
+            this.btnExcel.TabIndex = 13;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -242,7 +243,7 @@
             this.btnReset.Location = new System.Drawing.Point(659, 320);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(124, 45);
-            this.btnReset.TabIndex = 7;
+            this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
@@ -277,11 +278,11 @@
             // 
             // txbTongTien
             // 
-            this.txbTongTien.Location = new System.Drawing.Point(935, 246);
+            this.txbTongTien.Location = new System.Drawing.Point(929, 254);
             this.txbTongTien.Multiline = true;
             this.txbTongTien.Name = "txbTongTien";
             this.txbTongTien.Size = new System.Drawing.Size(207, 22);
-            this.txbTongTien.TabIndex = 3;
+            this.txbTongTien.TabIndex = 7;
             this.txbTongTien.Enter += new System.EventHandler(this.txbTongTien_Enter);
             // 
             // label7
@@ -300,7 +301,8 @@
             this.txbSoLuong.Multiline = true;
             this.txbSoLuong.Name = "txbSoLuong";
             this.txbSoLuong.Size = new System.Drawing.Size(207, 22);
-            this.txbSoLuong.TabIndex = 2;
+            this.txbSoLuong.TabIndex = 5;
+            this.txbSoLuong.Leave += new System.EventHandler(this.txbSoLuong_Leave);
             // 
             // label6
             // 
@@ -315,34 +317,35 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Brown;
-            this.panel4.Controls.Add(this.txbTimKhachHang);
+            this.panel4.Controls.Add(this.txbTimHD);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1200, 60);
             this.panel4.TabIndex = 21;
             // 
-            // txbTimKhachHang
+            // txbTimHD
             // 
-            this.txbTimKhachHang.BorderRadius = 20;
-            this.txbTimKhachHang.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbTimKhachHang.DefaultText = "";
-            this.txbTimKhachHang.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txbTimKhachHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txbTimKhachHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbTimKhachHang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbTimKhachHang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbTimKhachHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txbTimKhachHang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbTimKhachHang.IconLeft = ((System.Drawing.Image)(resources.GetObject("txbTimKhachHang.IconLeft")));
-            this.txbTimKhachHang.Location = new System.Drawing.Point(901, 10);
-            this.txbTimKhachHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txbTimKhachHang.Name = "txbTimKhachHang";
-            this.txbTimKhachHang.PasswordChar = '\0';
-            this.txbTimKhachHang.PlaceholderText = "Tìm kiếm ở đây";
-            this.txbTimKhachHang.SelectedText = "";
-            this.txbTimKhachHang.Size = new System.Drawing.Size(292, 40);
-            this.txbTimKhachHang.TabIndex = 0;
+            this.txbTimHD.BorderRadius = 20;
+            this.txbTimHD.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbTimHD.DefaultText = "";
+            this.txbTimHD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbTimHD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbTimHD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbTimHD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbTimHD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbTimHD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txbTimHD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbTimHD.IconLeft = ((System.Drawing.Image)(resources.GetObject("txbTimHD.IconLeft")));
+            this.txbTimHD.Location = new System.Drawing.Point(901, 10);
+            this.txbTimHD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbTimHD.Name = "txbTimHD";
+            this.txbTimHD.PasswordChar = '\0';
+            this.txbTimHD.PlaceholderText = "Tìm kiếm ở đây";
+            this.txbTimHD.SelectedText = "";
+            this.txbTimHD.Size = new System.Drawing.Size(292, 40);
+            this.txbTimHD.TabIndex = 0;
+            this.txbTimHD.TextChanged += new System.EventHandler(this.txbTimKhachHang_TextChanged);
             // 
             // btnXoa
             // 
@@ -351,7 +354,7 @@
             this.btnXoa.Location = new System.Drawing.Point(468, 320);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(124, 45);
-            this.btnXoa.TabIndex = 6;
+            this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -363,7 +366,7 @@
             this.btnSua.Location = new System.Drawing.Point(266, 320);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(124, 45);
-            this.btnSua.TabIndex = 5;
+            this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -375,23 +378,23 @@
             this.btnThem.Location = new System.Drawing.Point(74, 320);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(124, 45);
-            this.btnThem.TabIndex = 4;
+            this.btnThem.TabIndex = 8;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dgvBanHang
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvBanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvBanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBanHang.ColumnHeadersHeight = 46;
             this.dgvBanHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBanHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -403,14 +406,14 @@
             this.Column10,
             this.Column1,
             this.Column11});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBanHang.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBanHang.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBanHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBanHang.Location = new System.Drawing.Point(36, 506);
             this.dgvBanHang.Name = "dgvBanHang";
@@ -567,7 +570,7 @@
         private System.Windows.Forms.TextBox txbSoLuong;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel4;
-        private Guna.UI2.WinForms.Guna2TextBox txbTimKhachHang;
+        private Guna.UI2.WinForms.Guna2TextBox txbTimHD;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;

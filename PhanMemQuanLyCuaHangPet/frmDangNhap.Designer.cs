@@ -99,7 +99,7 @@
             this.btnLogin.Location = new System.Drawing.Point(189, 449);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(167, 62);
-            this.btnLogin.TabIndex = 24;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -121,7 +121,7 @@
             this.txbMatKhau.Name = "txbMatKhau";
             this.txbMatKhau.PasswordChar = '*';
             this.txbMatKhau.Size = new System.Drawing.Size(297, 22);
-            this.txbMatKhau.TabIndex = 22;
+            this.txbMatKhau.TabIndex = 1;
             // 
             // label3
             // 
@@ -139,7 +139,7 @@
             this.txbTaikhoan.Multiline = true;
             this.txbTaikhoan.Name = "txbTaikhoan";
             this.txbTaikhoan.Size = new System.Drawing.Size(297, 22);
-            this.txbTaikhoan.TabIndex = 20;
+            this.txbTaikhoan.TabIndex = 0;
             // 
             // label2
             // 
@@ -162,6 +162,10 @@
             this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox2.TabIndex = 25;
             this.guna2CirclePictureBox2.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmDangNhap
             // 

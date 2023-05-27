@@ -113,7 +113,7 @@
             this.btnKhoHang.Location = new System.Drawing.Point(0, 631);
             this.btnKhoHang.Name = "btnKhoHang";
             this.btnKhoHang.Size = new System.Drawing.Size(200, 55);
-            this.btnKhoHang.TabIndex = 9;
+            this.btnKhoHang.TabIndex = 8;
             this.btnKhoHang.Text = "Kho Hàng";
             this.btnKhoHang.UseVisualStyleBackColor = true;
             this.btnKhoHang.Click += new System.EventHandler(this.btnKhoHang_Click);
@@ -129,7 +129,7 @@
             this.btnTaiKhoan.Location = new System.Drawing.Point(0, 576);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Size = new System.Drawing.Size(200, 55);
-            this.btnTaiKhoan.TabIndex = 8;
+            this.btnTaiKhoan.TabIndex = 7;
             this.btnTaiKhoan.Text = "Tài Khoản";
             this.btnTaiKhoan.UseVisualStyleBackColor = true;
             this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
@@ -145,7 +145,7 @@
             this.btnBanHang.Location = new System.Drawing.Point(0, 521);
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Size = new System.Drawing.Size(200, 55);
-            this.btnBanHang.TabIndex = 7;
+            this.btnBanHang.TabIndex = 6;
             this.btnBanHang.Text = "Bán Hàng";
             this.btnBanHang.UseVisualStyleBackColor = true;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
@@ -177,7 +177,7 @@
             this.btnDangxuat.Location = new System.Drawing.Point(0, 745);
             this.btnDangxuat.Name = "btnDangxuat";
             this.btnDangxuat.Size = new System.Drawing.Size(200, 55);
-            this.btnDangxuat.TabIndex = 6;
+            this.btnDangxuat.TabIndex = 9;
             this.btnDangxuat.Text = "Đăng xuất";
             this.btnDangxuat.UseVisualStyleBackColor = true;
             this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
@@ -328,7 +328,7 @@
             this.btnThoat.Location = new System.Drawing.Point(1267, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(33, 34);
-            this.btnThoat.TabIndex = 15;
+            this.btnThoat.TabIndex = 0;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // label1

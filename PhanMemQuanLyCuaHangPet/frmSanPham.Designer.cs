@@ -50,14 +50,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
             this.dgvSanPham = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnWord = new System.Windows.Forms.Button();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnWord = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.panel5.SuspendLayout();
@@ -79,7 +79,7 @@
             this.btnXoa.Location = new System.Drawing.Point(458, 221);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(124, 45);
-            this.btnXoa.TabIndex = 7;
+            this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -114,7 +114,7 @@
             this.btnReset.Location = new System.Drawing.Point(663, 221);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(124, 45);
-            this.btnReset.TabIndex = 8;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -135,7 +135,8 @@
             this.txbSoLuongSP.Multiline = true;
             this.txbSoLuongSP.Name = "txbSoLuongSP";
             this.txbSoLuongSP.Size = new System.Drawing.Size(207, 22);
-            this.txbSoLuongSP.TabIndex = 4;
+            this.txbSoLuongSP.TabIndex = 3;
+            this.txbSoLuongSP.Leave += new System.EventHandler(this.txbSoLuongSP_Leave);
             // 
             // label8
             // 
@@ -153,7 +154,7 @@
             this.txbGiaSP.Multiline = true;
             this.txbGiaSP.Name = "txbGiaSP";
             this.txbGiaSP.Size = new System.Drawing.Size(207, 22);
-            this.txbGiaSP.TabIndex = 3;
+            this.txbGiaSP.TabIndex = 2;
             // 
             // label7
             // 
@@ -200,7 +201,7 @@
             this.btnSua.Location = new System.Drawing.Point(267, 221);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(124, 45);
-            this.btnSua.TabIndex = 6;
+            this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -212,7 +213,7 @@
             this.btnThem.Location = new System.Drawing.Point(73, 221);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(124, 45);
-            this.btnThem.TabIndex = 5;
+            this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -312,6 +313,34 @@
             this.dgvSanPham.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaSP";
+            this.Column1.HeaderText = "Mã Sản Phẩm";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenSP";
+            this.Column2.HeaderText = "Tên Sản Phẩm";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "GiaTien";
+            this.Column5.HeaderText = "Giá";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "SoLuong";
+            this.Column4.HeaderText = "Số Lượng";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -342,7 +371,7 @@
             this.btnWord.Location = new System.Drawing.Point(837, 221);
             this.btnWord.Name = "btnWord";
             this.btnWord.Size = new System.Drawing.Size(124, 45);
-            this.btnWord.TabIndex = 33;
+            this.btnWord.TabIndex = 8;
             this.btnWord.Text = "Word";
             this.btnWord.UseVisualStyleBackColor = false;
             this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
@@ -354,7 +383,7 @@
             this.btnExcel.Location = new System.Drawing.Point(1007, 221);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(124, 45);
-            this.btnExcel.TabIndex = 32;
+            this.btnExcel.TabIndex = 9;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -372,34 +401,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1300, 800);
             this.panel1.TabIndex = 9;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaSP";
-            this.Column1.HeaderText = "Mã Sản Phẩm";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenSP";
-            this.Column2.HeaderText = "Tên Sản Phẩm";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "GiaTien";
-            this.Column5.HeaderText = "Giá";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "SoLuong";
-            this.Column4.HeaderText = "Số Lượng";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
             // 
             // frmSanPham
             // 

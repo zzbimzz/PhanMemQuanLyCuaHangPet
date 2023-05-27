@@ -219,7 +219,7 @@
             this.cmbMaSP.Location = new System.Drawing.Point(506, 137);
             this.cmbMaSP.Name = "cmbMaSP";
             this.cmbMaSP.Size = new System.Drawing.Size(207, 30);
-            this.cmbMaSP.TabIndex = 36;
+            this.cmbMaSP.TabIndex = 1;
             // 
             // btnWord
             // 
@@ -228,7 +228,7 @@
             this.btnWord.Location = new System.Drawing.Point(836, 221);
             this.btnWord.Name = "btnWord";
             this.btnWord.Size = new System.Drawing.Size(124, 45);
-            this.btnWord.TabIndex = 35;
+            this.btnWord.TabIndex = 7;
             this.btnWord.Text = "Word";
             this.btnWord.UseVisualStyleBackColor = false;
             this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
@@ -240,7 +240,7 @@
             this.btnExcel.Location = new System.Drawing.Point(1014, 221);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(124, 45);
-            this.btnExcel.TabIndex = 34;
+            this.btnExcel.TabIndex = 8;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -252,7 +252,7 @@
             this.btnReset.Location = new System.Drawing.Point(661, 221);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(124, 45);
-            this.btnReset.TabIndex = 7;
+            this.btnReset.TabIndex = 6;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -343,7 +343,7 @@
             this.btnXoa.Location = new System.Drawing.Point(470, 221);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(124, 45);
-            this.btnXoa.TabIndex = 6;
+            this.btnXoa.TabIndex = 5;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -355,7 +355,7 @@
             this.btnSua.Location = new System.Drawing.Point(268, 221);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(124, 45);
-            this.btnSua.TabIndex = 5;
+            this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -367,7 +367,7 @@
             this.btnThem.Location = new System.Drawing.Point(76, 221);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(124, 45);
-            this.btnThem.TabIndex = 4;
+            this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);

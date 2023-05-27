@@ -25,6 +25,12 @@ namespace BUS
             return dal_khohang.GetKhoHang();
         }
 
+
+        public void CapNhatSoLuongTon(int maSP, int soLuongNhap)
+        {
+            dal_khohang.CapNhatSoLuongTon(maSP, soLuongNhap);
+        }
+
         public void AddKhoHang(KhoHang kh)
         {
             dal_khohang.AddKhoHang(kh);
