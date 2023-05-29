@@ -20,10 +20,6 @@ namespace DAL
 
 
 
-
-
-
-
         public DataTable LayHoaDonNhap(int MaHDN)
         {
             string query = "SP_lay_HoaDonNhap @MaHDN";

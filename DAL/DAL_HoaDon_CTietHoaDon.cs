@@ -10,7 +10,9 @@ namespace DAL
 {
     public class DAL_HoaDon_CTietHoaDon
     {
-        public DataTable GetHoaDon()
+
+    
+    public DataTable GetHoaDon()
         {
             string query = "SP_hienthi_HoaDon";
             return DataProvider.Instance.ExecuteQuery(query);

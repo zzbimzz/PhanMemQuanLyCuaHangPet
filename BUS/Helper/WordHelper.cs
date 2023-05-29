@@ -83,6 +83,7 @@ namespace BUS
                 document.SaveAndOpenFile(exportPath);
             }
         }
+
         public static void SaveAndOpenFile(this DocX doc, string filename = "BaoCao.docx")
         {
             /*string thuMuc = "temp";

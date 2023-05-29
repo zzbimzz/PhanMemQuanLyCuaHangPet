@@ -136,5 +136,12 @@ namespace PhanMemQuanLyCuaHangPet
             pnlHienthi.Top = btnKhoHang.Top;
             OpenchildForm(new frmKhoHang());
         }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            pnlHienthi.Height = btnThongKe.Height;
+            pnlHienthi.Top = btnThongKe.Top;
+            OpenchildForm(new frmThongKe());
+        }
     }
 }

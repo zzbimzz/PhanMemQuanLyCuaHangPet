@@ -21,8 +21,8 @@ namespace DAL
         public void CapNhatSoLuongTon(int maSP, int soLuongNhap)
         {
 
-            string query = $"UPDATE KhoHang SET SoLuongTon = SoLuongTon + {soLuongNhap} WHERE MaSP = '{maSP}'";
-            DataProvider.Instance.ExecuteNonQuery(query);
+            string query = $"SP_CatnhatSoLuongTon @MaSP , @SoLuongTon";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] {maSP,soLuongNhap});
         }
 
 

@@ -18,10 +18,10 @@ namespace DAL
 
         public int GetSoLuongSanPham(int maSP) // số lượng sản phẩm
         {
-            string query = $"SELECT SoLuong FROM SanPham WHERE MaSP = {maSP}";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = $"SP_GetSoLuongSanPham @MaSP";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maSP });
 
-            if (data.Rows.Count > 0)
+            if (data.Rows.Count > 0) // kiểm tra có dữ liệu trả về không
             {
                 int soLuong = Convert.ToInt32(data.Rows[0]["SoLuong"]);
                 return soLuong;
@@ -35,16 +35,16 @@ namespace DAL
         {
             if (soLuong >= 0)
             {
-                string query = $"UPDATE SanPham SET SoLuong = SoLuong - {soLuong} WHERE MaSP = {maSP}";
-                DataProvider.Instance.ExecuteNonQuery(query);
+                string query = $"SP_CapNhatSoLuongSanPham @MaSP , @SoLuong";
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { maSP ,soLuong });
             }
 
         }
 
         public float GetTienSanPham(string tensp) // giá tiền sản phẩm
         {
-            string query = $"SELECT GiaTien FROM SanPham WHERE TenSP = N'{tensp}'";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = $"SP_GetTienSanPham @TenSP";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tensp });
 
             if (data.Rows.Count > 0)
             {
@@ -58,11 +58,12 @@ namespace DAL
 
         public void AddSanPham(SanPham sanpham)
         {
-            string query = $"SP_Add_SanPham @MaSP , @TenSP , @GiaTien , @SoLuong  ";
+            string query = $"SP_Add_SanPham @MaSP , @TenSP , @GiaTien , @SoLuong  "; // đối số câu truy vấn
+            //Đối số thứ hai là parameters, đây là một mảng các giá trị tương ứng với các tham số trong câu truy vấn.
             DataProvider.Instance.
-                ExecuteQuery(query, new object[]
+                ExecuteQuery(query, new object[] 
                 {
-                    sanpham.MaSP,
+                    sanpham.MaSP, 
                     sanpham.TenSP,
                     sanpham.GiaTien,
                     sanpham.SoLuong,

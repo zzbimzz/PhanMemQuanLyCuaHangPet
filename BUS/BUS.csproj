@@ -122,6 +122,7 @@
     <Compile Include="BUS_NhanVien.cs" />
     <Compile Include="BUS_SanPham.cs" />
     <Compile Include="BUS_TaiKhoan.cs" />
+    <Compile Include="BUS_ThongKe.cs" />
     <Compile Include="Helper\ExcelHelper.cs" />
     <Compile Include="Helper\WordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

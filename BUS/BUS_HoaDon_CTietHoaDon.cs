@@ -16,8 +16,9 @@ namespace BUS
 {
     public class BUS_HoaDon_CTietHoaDon
     {
-        DAL_HoaDon_CTietHoaDon dal_hoadon_ctiethoadon = new DAL_HoaDon_CTietHoaDon();
 
+
+        DAL_HoaDon_CTietHoaDon dal_hoadon_ctiethoadon = new DAL_HoaDon_CTietHoaDon();
 
         public DataTable GetHoaDon()
         {

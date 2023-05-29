@@ -53,6 +53,7 @@
             this.pbxFish = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbxCat = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbxDog = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -85,6 +86,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnThongKe);
             this.panel3.Controls.Add(this.btnKhoHang);
             this.panel3.Controls.Add(this.btnTaiKhoan);
             this.panel3.Controls.Add(this.btnBanHang);
@@ -384,6 +386,22 @@
             this.pbxDog.TabIndex = 4;
             this.pbxDog.TabStop = false;
             // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnThongKe.FlatAppearance.BorderSize = 0;
+            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
+            this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongKe.Location = new System.Drawing.Point(0, 686);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(200, 55);
+            this.btnThongKe.TabIndex = 10;
+            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -438,5 +456,6 @@
         private Guna.UI2.WinForms.Guna2Button btnThoat;
         private System.Windows.Forms.Button btnKhoHang;
         public System.Windows.Forms.Button btnTaiKhoan;
+        private System.Windows.Forms.Button btnThongKe;
     }
 }

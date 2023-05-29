@@ -82,6 +82,7 @@
     <Compile Include="DAL_NhanVien.cs" />
     <Compile Include="DAL_SanPham.cs" />
     <Compile Include="DAL_TaiKhoan.cs" />
+    <Compile Include="DAL_ThongKe.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
